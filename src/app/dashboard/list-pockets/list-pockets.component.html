@@ -1,0 +1,20 @@
+<ul>
+  <li *ngFor="let pocket of listPocket">
+
+    <div class="pocket-name" (click)="goPocket(pocket.id)">
+      {{pocket.pocketName}}
+    </div>
+
+    <div class="buttons">
+      <!--Button edit-->
+      <button mat-mini-fab color="primary" class="me-1" (click)="onEdit(pocket.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <!-- Button delete -->
+      <button mat-mini-fab color="warn" (click)="onDialogDelete(pocket.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+  </li>
+</ul>

@@ -1,0 +1,19 @@
+<ul>
+  <li *ngFor="let expense of listExpenses">
+
+    <div class="expense" (click)="goExpense(expense.id)">
+      <p>{{expense.expenseName}}</p>
+      <small class="text-muted">{{expense.createdAt.toDate() | date:'medium'}}</small>
+    </div>
+
+    <div class="amount">
+      <p>S/. {{expense.expenseAmount}}</p>
+    </div>
+    <div class="buttons">
+      <button mat-mini-fab color="warn" (click)="onDialogDelete(expense.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+  </li>
+</ul>

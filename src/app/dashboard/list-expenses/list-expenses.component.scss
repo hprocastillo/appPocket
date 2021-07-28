@@ -1,0 +1,40 @@
+ul {
+  list-style-type: none;
+  padding: 10px;
+}
+
+li {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.expense {
+  width: 60%;
+}
+
+.expense > p {
+  line-height: 30px;
+  font-size: 16px;
+  margin: 0;
+}
+
+.expense > small {
+  margin: 0;
+}
+
+.amount {
+  width: 25%;
+  text-align: right;
+}
+
+.amount > p {
+  line-height: 30px;
+  font-size: 18px
+}
+
+.buttons {
+  width: 15%;
+  display: flex;
+  justify-content: flex-end;
+}

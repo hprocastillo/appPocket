@@ -1,0 +1,48 @@
+<ng-container *ngIf="showExpenseForm === false">
+  <div class="d-grid gap-2">
+    <button mat-raised-button color="primary" (click)="showForm()">Nuevo gasto</button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="showExpenseForm === true">
+  <h2>Registra nuevo gasto</h2>
+
+  <form [formGroup]="newExpenseForm" (ngSubmit)="onSave(user.uid, user.displayName, user.email, user.photoURL)">
+    <div class="d-grid gap-2">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre del gasto</mat-label>
+        <input matInput formControlName="expenseName" required>
+        <mat-icon matSuffix><span class="material-icons">payments</span></mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label>Monto</mat-label>
+          <input matInput type="number" class="example-right-align" placeholder="0" formControlName="expenseAmount"
+                 required>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <div class="input--file">
+          <img src="assets/images/camera.svg" alt="camera" class="img-camera">
+          <input type="file" capture="user" accept="image/*">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="d-grid gap-2">
+          <button type="button" mat-raised-button color="warn" (click)="hideForm()">Cancelar</button>
+        </div>
+      </div>
+      <div class="col">
+        <div class="d-grid gap-2">
+          <button type="submit" mat-raised-button color="primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ng-container>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mypocket-2db16": {
+      "hosting": {
+        "appPocket": [
+          "mypocket-2db16"
+        ]
+      }
+    }
+  }
+}

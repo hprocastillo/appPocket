@@ -1,0 +1,19 @@
+<form [formGroup]="newPocketForm" (ngSubmit)="onSave(user.uid, user.displayName, user.email, user.photoURL)">
+  <div class="row">
+    <div class="col-12">
+      <h2>Registra un nuevo bolsillo</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="pocketName" required>
+        <mat-icon matSuffix>account_balance_wallet</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-4 d-grid gap-2">
+      <button type="submit" class="btn-submit" mat-raised-button color="primary">Guardar</button>
+    </div>
+  </div>
+</form>

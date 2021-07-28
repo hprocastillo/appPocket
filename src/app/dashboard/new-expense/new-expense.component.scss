@@ -1,0 +1,17 @@
+.input--file {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: #7f7f7f;
+}
+
+.input--file input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.img-camera {
+  width: 50px;
+}

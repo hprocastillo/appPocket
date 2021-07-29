@@ -14,8 +14,9 @@ import {takeUntil} from "rxjs/operators";
 export class PocketComponent implements OnInit, OnDestroy {
   today = new Date();
   monthDefaultName: string | any;
-  monthDefaultValue: number = 0;
-  monthSelectedValue: number = 0;
+  monthDefaultValue: number | any;
+  monthSelectedName: string | any;
+  monthSelectedValue: number | any;
 
   nameMonths = [
     {value: 0, name: 'Enero'},
@@ -116,7 +117,47 @@ export class PocketComponent implements OnInit, OnDestroy {
 
   changeSelectedMonth(event: any) {
     this.monthSelectedValue = parseInt(event);
-    console.log(this.monthSelectedValue)
+  
+    switch (this.monthSelectedValue) {
+      case 0:
+        this.monthSelectedName = 'Enero';
+        break;
+      case 1:
+        this.monthSelectedName = 'Febrero';
+        break;
+      case 2:
+        this.monthSelectedName = 'Marzo';
+         break;
+      case 3:
+        this.monthSelectedName = 'Abril';
+        break;
+      case 4:
+        this.monthSelectedName = 'Mayo';
+         break;
+      case 5:
+        this.monthSelectedName = 'Junio';
+            break;
+      case 6:
+        this.monthSelectedName = 'Julio';
+        break;
+      case 7:
+        this.monthSelectedName = 'Agosto';
+        break;
+      case 8:
+        this.monthSelectedName = 'Septiembre';
+           break;
+      case 9:
+        this.monthSelectedName = 'Octubre';
+        break;
+      case 10:
+        this.monthSelectedName = 'Noviembre';
+        break;
+      case 11:
+        this.monthSelectedName = 'Diciembre';
+          break;
+      default:
+        break;
+    }
   }
 
   getTotal(event: any) {

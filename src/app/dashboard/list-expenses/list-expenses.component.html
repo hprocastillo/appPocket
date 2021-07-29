@@ -4,13 +4,15 @@
     <div class="expense" (click)="goExpense(expense.id)">
       <p>{{expense.expenseName}}</p>
       <small class="text-muted">{{expense.createdAt.toDate() | date:'medium'}}</small>
+      &nbsp;
+      <app-download-receipt [url]="expense.expenseReceiptUrl"></app-download-receipt>
     </div>
 
     <div class="amount">
       <p>S/. {{expense.expenseAmount}}</p>
     </div>
     <div class="buttons">
-      <button mat-mini-fab color="warn" (click)="onDialogDelete(expense.id)">
+            <button mat-mini-fab color="warn" (click)="onDialogDelete(expense.id)">
         <mat-icon>delete</mat-icon>
       </button>
     </div>

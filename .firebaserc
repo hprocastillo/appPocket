@@ -7,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "mypocket-2db16"
   }
 }

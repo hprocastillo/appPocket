@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import firebase from "firebase/app";
 import User = firebase.User;
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {PocketService} from "../../services/pocket.service";
 import {ExpenseService} from "../../services/expense.service";
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-new-expense',
@@ -16,8 +16,9 @@ export class NewExpenseComponent implements OnInit {
   @Input() pocketId: string | any;
   @Input() user = {} as User;
   newExpenseForm: FormGroup;
+  nameRandom: string = '';
 
-  constructor(private fb: FormBuilder, private expenseSvc: ExpenseService) {
+  constructor(private fb: FormBuilder, private expenseSvc: ExpenseService, private storage: AngularFireStorage) {
     this.newExpenseForm = this.fb.group({
       expenseName: ['', [Validators.required]],
       expenseAmount: ['', [Validators.required]],
@@ -25,6 +26,18 @@ export class NewExpenseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  uploadFile(event: any) {
+    const characters = 'AbCdEfGhIjKmNlOpQrStUvWxYz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < charactersLength; i++) {
+      this.nameRandom += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    const file = event.target.files[0];
+    const filePath = 'images/' + this.nameRandom;
+    const task = this.storage.upload(filePath, file);
   }
 
   showForm() {
@@ -40,6 +53,7 @@ export class NewExpenseComponent implements OnInit {
       const expense = this.newExpenseForm.value;
       const expenseId = expense?.id || null;
       expense.pocketId = this.pocketId;
+      expense.expenseReceiptUrl = this.nameRandom;
       expense.userId = userId;
       expense.userDisplayName = userDisplayName;
       expense.userEmail = userEmail;

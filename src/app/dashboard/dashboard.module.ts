@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { PocketComponent } from './pocket/pocket.component';
 import { ListExpensesComponent } from './list-expenses/list-expenses.component';
 import { NewExpenseComponent } from './new-expense/new-expense.component';
+import { DownloadReceiptComponent } from './download-receipt/download-receipt.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NewExpenseComponent } from './new-expense/new-expense.component';
     DeleteConfirmComponent,
     PocketComponent,
     ListExpensesComponent,
-    NewExpenseComponent
+    NewExpenseComponent,
+    DownloadReceiptComponent
   ],
   exports: [
     DashboardComponent

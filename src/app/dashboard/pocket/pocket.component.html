@@ -9,8 +9,16 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div class="col-4">
-      {{monthDefaultName}}
+    <div class="col-4 d-flex justify-content-end">
+
+      <ng-container *ngIf="monthSelectedValue !== undefined; else defaultMonth">
+        <h1>{{monthSelectedName}}</h1>
+      </ng-container>
+
+      <ng-template #defaultMonth>
+        <h1>{{monthDefaultName}}</h1>
+      </ng-template>
+      
     </div>
   </div>
 
